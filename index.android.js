@@ -11,8 +11,24 @@ import {
   Text,
   View
 } from 'react-native';
+import TensorFlowModule from './src/module/TensorFlow';
 
 export default class Artist extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      version: '',
+    };
+  }
+
+  componentDidMount() {
+    TensorFlowModule.getVersion().then((data) => {
+      this.setState({
+        version: data,
+      });
+    });
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -26,6 +42,7 @@ export default class Artist extends Component {
           Double tap R on your keyboard to reload,{'\n'}
           Shake or press menu button for dev menu
         </Text>
+        <Text>{this.state.version}</Text>
       </View>
     );
   }
