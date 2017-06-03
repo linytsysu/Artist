@@ -42,7 +42,7 @@ import java.io.IOException;
 
 import org.tensorflow.TensorFlow;
 import org.tensorflow.contrib.android.TensorFlowInferenceInterface;
-import com.artist.env.ImageUtils;
+import com.artist.tensorflow.utils.ImageUtils;
 
 
 public class TensorFlowModule extends ReactContextBaseJavaModule {

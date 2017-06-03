@@ -9,24 +9,58 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  TouchableOpacity,
+  Alert,
 } from 'react-native';
-import TensorFlowModule from './src/module/TensorFlow';
+import ImagePicker from 'react-native-image-picker';
+import TensorFlowModule from './src/tensorflow/TensorFlow';
 
 export default class Artist extends Component {
   constructor(props) {
     super(props);
     this.state = {
       version: '',
+      size: '',
     };
+    this.handleLaunchCameraPress = this.handleLaunchCameraPress.bind(this);
+    this.handleLaunchLibraryPress = this.handleLaunchLibraryPress.bind(this);
   }
 
   componentDidMount() {
     TensorFlowModule.getVersion().then((data) => {
       this.setState({
         version: data,
+        maxWidth: 1024,
+        maxHeight: 1024,
       });
     });
+  }
+
+  handleLaunchCameraPress() {
+    ImagePicker.launchCamera({
+        noData: true,
+        maxWidth: 1024,
+        maxHeight: 1024,
+      }, (response) => {
+        TensorFlowModule.stylize(response.uri, 2).then((data) => {
+          this.setState({
+            size: data,
+          });
+        });
+      });
+  }
+
+  handleLaunchLibraryPress() {
+    ImagePicker.launchImageLibrary({
+        noData: true,
+      }, (response) => {
+        TensorFlowModule.stylize(response.uri, 7).then((data) => {
+          this.setState({
+            size: data,
+          });
+        });
+      });
   }
 
   render() {
@@ -43,6 +77,13 @@ export default class Artist extends Component {
           Shake or press menu button for dev menu
         </Text>
         <Text>{this.state.version}</Text>
+        <TouchableOpacity onPress={this.handleLaunchCameraPress}>
+          <Text>launchCamera</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={this.handleLaunchLibraryPress}>
+          <Text>launchImageLibrary</Text>
+        </TouchableOpacity>
+        <Text>{this.state.size}</Text>
       </View>
     );
   }

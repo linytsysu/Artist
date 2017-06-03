@@ -1,4 +1,4 @@
-package com.artist;
+package com.artist.tensorflow;
 
 import com.facebook.react.bridge.JavaScriptModule;
 import com.facebook.react.bridge.NativeModule;
