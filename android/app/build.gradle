@@ -126,6 +126,10 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-share')
+    compile project(':react-native-fs')
+    compile project(':react-native-fetch-blob')
+    compile project(':react-native-vector-icons')
     compile project(':react-native-image-picker')
     compile fileTree(dir: "libs", include: ["*.jar"])
     compile 'org.tensorflow:tensorflow-android:1.2.0-rc0'
