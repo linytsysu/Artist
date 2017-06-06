@@ -8,7 +8,6 @@ import {
   CameraRoll,
   ToastAndroid,
 } from 'react-native';
-import RNFetchBlob from 'react-native-fetch-blob';
 import RNFS from 'react-native-fs';
 import Share from 'react-native-share';
 import TensorFlowModule from '../../tensorflow/TensorFlow';
@@ -22,8 +21,6 @@ const BEFORE_PROCESS = 0;
 const PROCESSING = 1;
 const PROCESS_SUCCESS = 2;
 const PROCESS_ERROR = 3;
-
-const ROOT_PATH = RNFS.DocumentDirectoryPath;
 
 class Editor extends Component {
   static propTypes = {
@@ -52,55 +49,33 @@ class Editor extends Component {
   }
 
   requestArtist(styleName) {
+    if (this.state.stylized[styleName]) {
+      this.setState({
+        currentStyle: styleName,
+      });
+      return;
+    }
     const resourceUri = this.props.imageUri;
     const styleIndex = parseInt(styleName.slice(5));
-    // alert(resourceUri);
-    TensorFlowModule.stylize(resourceUri, styleIndex).then((data) => {
-      alert(data);
+    this.setState({
+      status: PROCESSING,
+      processStyle: styleName,
     });
-    // if (this.state.stylized[styleName]) {
-    //   this.setState({
-    //     currentStyle: styleName,
-    //   });
-    //   return;
-    // }
-    // const resourceUri = this.props.imageUri;
-    // const suffix = (new Date()).getTime();
-    // this.setState({
-    //   status: PROCESSING,
-    //   processStyle: styleName,
-    // });
-    // RNFetchBlob.fetch('POST', 'http://120.25.219.17/upload',
-      //   {
-      //     'Content-Type' : 'multipart/form-data',
-      //   },
-      //   [{
-      //     name: 'style',
-      //     data: styleName,
-      //   },{
-      //     name: 'filename',
-      //     filename: 'resource.png',
-      //     data: RNFetchBlob.wrap(resourceUri),
-      //   },]
-      // )
-      // .then((response) => {
-      //   let savePath = `${ROOT_PATH}/${styleName}-${suffix}.png`;
-      //   return RNFS.writeFile(savePath, response.data, 'base64');
-      // })
-      // .then(() => {
-      //   this.setState({
-      //     status: PROCESS_SUCCESS,
-      //     currentStyle: styleName,
-      //     processStyle: null,
-      //     stylized: { ...this.state.stylized, [styleName]: `${ROOT_PATH}/${styleName}-${suffix}.png` },
-      //   });
-      // })
-      // .catch(() => {
-      //   this.setState({
-      //     status: PROCESS_ERROR,
-      //     processStyle: null,
-      //   });
-      // });
+    setTimeout(() => {  // need a timeout to show the status modal
+      TensorFlowModule.stylize(resourceUri, styleIndex).then((url) => {
+        this.setState({
+          status: PROCESS_SUCCESS,
+          currentStyle: styleName,
+          processStyle: null,
+          stylized: { ...this.state.stylized, [styleName]: `${url}` }
+        })
+      }).catch((err) => {
+        this.setState({
+          status: PROCESS_ERROR,
+          processStyle: null,
+        });
+      });
+    }, 100);
   }
 
   _resetImage() {

@@ -17,6 +17,7 @@ import android.provider.MediaStore;
 import android.net.Uri;
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.graphics.BitmapFactory;
@@ -37,6 +38,7 @@ import android.os.Trace;
 
 import java.nio.ByteBuffer;
 import java.io.InputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 
@@ -141,8 +143,21 @@ public class TensorFlowModule extends ReactContextBaseJavaModule {
         }
         croppedBitmap.setPixels(
             intValues, 0, croppedBitmap.getWidth(), 0, 0, croppedBitmap.getWidth(), croppedBitmap.getHeight());
-        ImageUtils.saveBitmap(croppedBitmap, "stylized" + styleIndex + ".png");
 
-        promise.resolve(uri);
+        // get uri object from bitmap
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        croppedBitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+        String path = MediaStore.Images.Media.insertImage(this.context.getContentResolver(), croppedBitmap, "Title", null);
+        // Uri.parse(path)
+
+        // get real path from uri object
+        String [] proj = {MediaStore.Images.Media.DATA};
+        Cursor cursor = this.context.getContentResolver().query(Uri.parse(path), proj, null, null, null);
+        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+        cursor.moveToFirst();
+        String realPath = cursor.getString(column_index);
+        cursor.close();
+
+        promise.resolve(realPath);
     }
 }
