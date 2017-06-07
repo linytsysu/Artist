@@ -1,7 +1,7 @@
 # <p align="center"> Artist </p>
 
 <p align="center">
-  <img alt="icon" src="http://ww1.sinaimg.cn/large/d8bb645dgy1fgcx7xsjenj20400403yj.jpg" width="120" height="120"> 
+  <img alt="icon" src="http://7u2fpc.com1.z0.glb.clouddn.com/artist-icon.png" width="120" height="120"> 
 </p>
 
 <p align="center">An image style transfer App built with TensorFlow and React Native.</p>
