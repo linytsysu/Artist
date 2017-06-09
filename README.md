@@ -10,6 +10,13 @@
 
 Artist is an App built with TensorFlow and React Native, which can transfer the style of your pictures.
 
+<p>
+  <img alt="screenshot_1" src="http://7u2fpc.com1.z0.glb.clouddn.com/screenshot_1.png" style="margin-left: 10px">
+  <img alt="screenshot_2" src="http://7u2fpc.com1.z0.glb.clouddn.com/screenshot_2.png" style="margin-left: 10px">
+  <img alt="screenshot_3" src="http://7u2fpc.com1.z0.glb.clouddn.com/screenshot_3.png" style="margin-left: 10px">
+  <img alt="screenshot_4" src="http://7u2fpc.com1.z0.glb.clouddn.com/screenshot_4.png" style="margin-left: 10px">
+</p>
+
 ## Dependencies and References
 
 + TensorFlow Version: 1.2.0-rc0
