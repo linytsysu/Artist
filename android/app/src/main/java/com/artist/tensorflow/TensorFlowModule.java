@@ -125,6 +125,8 @@ public class TensorFlowModule extends ReactContextBaseJavaModule {
         for (int i = 0; i < NUM_STYLES; ++i) {
             if (i == styleIndex) {
                 styleVals[styleIndex] = 1.0f;
+            } else {
+                styleVals[i] = 0.0f;
             }
         }
 
