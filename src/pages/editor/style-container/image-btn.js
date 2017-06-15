@@ -6,16 +6,17 @@ import {
   Text,
   StyleSheet,
 } from 'react-native';
+import PropTypes from 'prop-types';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
 import { getImage } from './constant';
 
 class StyleImageBtn extends Component {
   static propTypes = {
-    name: React.PropTypes.string.isRequired,
-    pressHandler: React.PropTypes.func.isRequired,
-    used: React.PropTypes.bool,
-    checked: React.PropTypes.bool,
+    name: PropTypes.string.isRequired,
+    pressHandler: PropTypes.func.isRequired,
+    used: PropTypes.bool,
+    checked: PropTypes.bool,
   }
 
   static defaultProps = {

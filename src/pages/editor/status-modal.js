@@ -6,9 +6,10 @@ import {
   StyleSheet,
   ActivityIndicator,
 } from 'react-native';
+import PropTypes from 'prop-types';
 
 StatusModal.propTypes = {
-  visible: React.PropTypes.bool,
+  visible: PropTypes.bool,
 };
 
 function StatusModal({visible = false}) {

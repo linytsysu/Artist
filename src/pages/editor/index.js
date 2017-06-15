@@ -8,6 +8,7 @@ import {
   CameraRoll,
   ToastAndroid,
 } from 'react-native';
+import PropTypes from 'prop-types';
 import RNFS from 'react-native-fs';
 import Share from 'react-native-share';
 import TensorFlowModule from '../../tensorflow/TensorFlow';
@@ -24,8 +25,8 @@ const PROCESS_ERROR = 3;
 
 class Editor extends Component {
   static propTypes = {
-    imageUri: React.PropTypes.string.isRequired,
-    navigator: React.PropTypes.object.isRequired,
+    imageUri: PropTypes.string.isRequired,
+    navigator: PropTypes.object.isRequired,
   }
 
   constructor(props) {

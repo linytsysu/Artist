@@ -3,15 +3,16 @@ import {
   View,
   StyleSheet,
 } from 'react-native';
+import PropTypes from 'prop-types';
 
 import OperationBtn from './operation-btn';
 
 class OperationContainer extends Component {
   static propTypes = {
-    visible: React.PropTypes.bool.isRequired,
-    saveHandler: React.PropTypes.func.isRequired,
-    shareHandler: React.PropTypes.func.isRequired,
-    clearHandler: React.PropTypes.func.isRequired,
+    visible: PropTypes.bool.isRequired,
+    saveHandler: PropTypes.func.isRequired,
+    shareHandler: PropTypes.func.isRequired,
+    clearHandler: PropTypes.func.isRequired,
   }
 
   render() {

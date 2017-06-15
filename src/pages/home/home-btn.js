@@ -4,6 +4,7 @@ import {
   Text,
   StyleSheet,
 } from 'react-native';
+import PropTypes from 'prop-types';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
 const iconNameMap = {
@@ -12,9 +13,9 @@ const iconNameMap = {
 };
 
 HomeBtn.propTypes = {
-  text: React.PropTypes.string.isRequired,
-  name: React.PropTypes.oneOf(Object.keys(iconNameMap)),
-  pressHandler: React.PropTypes.func.isRequired,
+  text: PropTypes.string.isRequired,
+  name: PropTypes.oneOf(Object.keys(iconNameMap)),
+  pressHandler: PropTypes.func.isRequired,
 };
 
 function HomeBtn ({name, text, pressHandler}) {

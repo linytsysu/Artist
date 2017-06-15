@@ -4,13 +4,14 @@ import {
   StyleSheet,
   StatusBar,
 } from 'react-native';
+import PropTypes from 'prop-types';
 import ImagePicker from 'react-native-image-picker';
 
 import HomeBtn from './home-btn';
 
 class Home extends Component {
   static propTypes = {
-    navigator: React.PropTypes.object.isRequired,
+    navigator: PropTypes.object.isRequired,
   }
 
   constructor(props) {

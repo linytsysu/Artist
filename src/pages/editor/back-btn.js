@@ -3,10 +3,11 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
+import PropTypes from 'prop-types';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
 BackBtn.propTypes = {
-  pressHandler: React.PropTypes.func.isRequired,
+  pressHandler: PropTypes.func.isRequired,
 };
 
 function BackBtn({pressHandler}) {

@@ -3,6 +3,7 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
+import PropTypes from 'prop-types';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
 const iconNameMap = {
@@ -12,8 +13,8 @@ const iconNameMap = {
 };
 
 OperationBtn.propTypes = {
-  name: React.PropTypes.oneOf(Object.keys(iconNameMap)).isRequired,
-  pressHandler: React.PropTypes.func.isRequired,
+  name: PropTypes.oneOf(Object.keys(iconNameMap)).isRequired,
+  pressHandler: PropTypes.func.isRequired,
 };
 
 function OperationBtn({name, pressHandler}) {

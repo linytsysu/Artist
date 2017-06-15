@@ -3,6 +3,7 @@ import {
   ScrollView,
   StyleSheet,
 } from 'react-native';
+import PropTypes from 'prop-types';
 
 import StyleImageBtn from './image-btn';
 import { styleNames } from './constant';
@@ -10,9 +11,9 @@ import { styleNames } from './constant';
 
 class StyleContainer extends Component {
   static propTypes = {
-    current: React.PropTypes.string.isRequired,
-    stylized: React.PropTypes.array.isRequired,
-    styleSelectHandler: React.PropTypes.func.isRequired,
+    current: PropTypes.string.isRequired,
+    stylized: PropTypes.array.isRequired,
+    styleSelectHandler: PropTypes.func.isRequired,
   }
 
   render() {
