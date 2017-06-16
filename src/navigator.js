@@ -23,11 +23,8 @@ class ArtistNavgator extends Component {
   }
 
   handleBackButton() {
-    const {
-      navigator,
-    } = this.refs;
-    if (navigator && navigator.getCurrentRoutes().length > 1) {
-      navigator.pop();
+    if (this.navigator && this.navigator.getCurrentRoutes().length > 1) {
+      this.navigator.pop();
       return true;
     }
   }
@@ -50,10 +47,9 @@ class ArtistNavgator extends Component {
 
 
   render() {
-    console.log(CustomComponents.Navigator);
     return (
       <CustomComponents.Navigator
-        ref={'navigator'}
+        ref={(navigator) => { this.navigator = navigator; }}
         initialRoute={{}}
         renderScene={this.renderScene}
       />
