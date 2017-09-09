@@ -27,8 +27,8 @@ function OperationBtn({name, pressHandler}) {
         name === 'download'
           ? styles.downloadBtn
           : name === 'share'
-          ? styles.shareBtn
-          : styles.clearBtn
+            ? styles.shareBtn
+            : styles.clearBtn
       ]}
       onPress={pressHandler}>
       <MaterialIcon
