@@ -8,23 +8,23 @@
 	},
 	"dependencies": {
 		"prop-types": "^15.5.10",
-		"react": "16.0.0-alpha.6",
-		"react-native": "0.44.2",
-		"react-native-deprecated-custom-components": "^0.1.0",
-		"react-native-fetch-blob": "^0.10.5",
-		"react-native-fs": "^2.3.3",
-		"react-native-image-picker": "^0.26.3",
-		"react-native-share": "^1.0.20",
-		"react-native-vector-icons": "^4.2.0",
+		"react": "16.0.0-alpha.12",
+		"react-native": "0.48.2",
+		"react-native-deprecated-custom-components": "^0.1.1",
+		"react-native-fetch-blob": "^0.10.8",
+		"react-native-fs": "^2.5.1",
+		"react-native-image-picker": "^0.26.6",
+		"react-native-share": "^1.0.21",
+		"react-native-vector-icons": "^4.3.0",
 		"react-navigation": "^1.0.0-beta.11"
 	},
 	"devDependencies": {
-		"babel-jest": "20.0.3",
-		"babel-preset-react-native": "1.9.2",
-		"eslint": "^4.0.0",
-		"eslint-plugin-react": "^7.1.0",
-		"jest": "20.0.4",
-		"react-test-renderer": "16.0.0-alpha.6"
+		"babel-jest": "21.0.2",
+		"babel-preset-react-native": "3.0.2",
+		"eslint": "^4.6.1",
+		"eslint-plugin-react": "^7.3.0",
+		"jest": "21.0.2",
+		"react-test-renderer": "16.0.0-alpha.12"
 	},
 	"jest": {
 		"preset": "react-native"

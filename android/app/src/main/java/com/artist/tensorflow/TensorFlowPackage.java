@@ -11,7 +11,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Created by dano on 01/03/17.
+ * Created by linytsysu on 09/09/17.
  */
 
 public class TensorFlowPackage implements com.facebook.react.ReactPackage {
@@ -21,11 +21,6 @@ public class TensorFlowPackage implements com.facebook.react.ReactPackage {
         return Arrays.<NativeModule>asList(
                 new TensorFlowModule(reactApplicationContext)
         );
-    }
-
-    @Override
-    public List<Class<? extends JavaScriptModule>> createJSModules() {
-        return Collections.emptyList();
     }
 
     @Override
