@@ -7,6 +7,7 @@
 		"test": "jest",
 		"eslint": "eslint src/"
 	},
+	"pre-commit": "eslint",
 	"dependencies": {
 		"prop-types": "^15.5.10",
 		"react": "16.0.0-alpha.12",
@@ -20,11 +21,13 @@
 		"react-navigation": "^1.0.0-beta.11"
 	},
 	"devDependencies": {
+		"babel-eslint": "^7.2.3",
 		"babel-jest": "21.0.2",
 		"babel-preset-react-native": "3.0.2",
 		"eslint": "^4.6.1",
 		"eslint-plugin-react": "^7.3.0",
 		"jest": "21.0.2",
+		"pre-commit": "^1.2.2",
 		"react-test-renderer": "16.0.0-alpha.12"
 	},
 	"jest": {

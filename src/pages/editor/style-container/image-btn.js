@@ -53,17 +53,17 @@ class StyleImageBtn extends Component {
                   />
                 </View>
               ) :
-            used
-              ? (
-                <View style={styles.used}>
-                  <View style={styles.iconWrapper}>
-                    <MaterialIcon
-                      name={'check'}
-                      style={styles.usedIcon}
-                    />
+              used
+                ? (
+                  <View style={styles.used}>
+                    <View style={styles.iconWrapper}>
+                      <MaterialIcon
+                        name={'check'}
+                        style={styles.usedIcon}
+                      />
+                    </View>
                   </View>
-                </View>
-              ) : <View />
+                ) : <View />
           }
           <View style={styles.intro}>
             <Text style={styles.name}>{name}</Text>

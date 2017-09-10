@@ -69,8 +69,8 @@ class Editor extends Component {
           currentStyle: styleName,
           processStyle: null,
           stylized: { ...this.state.stylized, [styleName]: `${url}` }
-        })
-      }).catch((err) => {
+        });
+      }).catch(() => {
         this.setState({
           status: PROCESS_ERROR,
           processStyle: null,
@@ -125,7 +125,6 @@ class Editor extends Component {
   _getImageSourceUri() {
     const {
       currentStyle,
-      processStyle,
       stylized,
     } = this.state;
     if (!currentStyle || !stylized[currentStyle]) {
@@ -136,7 +135,6 @@ class Editor extends Component {
   }
 
   render() {
-    const resourceUri = this.props.imageUri;
     const {
       currentStyle,
       processStyle,
@@ -166,10 +164,10 @@ class Editor extends Component {
               />
               <StyleContainer
                 current={processStyle
-                          ? processStyle
-                          : currentStyle
-                          ? currentStyle
-                          : ''}
+                  ? processStyle
+                  : currentStyle
+                    ? currentStyle
+                    : ''}
                 stylized={Object.keys(stylized)}
                 styleSelectHandler={this.requestArtist}
               />
