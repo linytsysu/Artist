@@ -11,7 +11,7 @@ import HomeBtn from './home-btn';
 
 class Home extends Component {
   static propTypes = {
-    navigator: PropTypes.object.isRequired,
+    navigation: PropTypes.object.isRequired,
   }
 
   constructor(props) {
@@ -22,10 +22,12 @@ class Home extends Component {
   }
 
   _goToEditor(uri) {
-    this.props.navigator.push({
-      editor: true,
-      imageUri: uri,
-    });
+    this.props.navigation.navigate(
+      'Editor',
+      {
+        imageUri: uri,
+      },
+    );
   }
 
   _launchCamera() {

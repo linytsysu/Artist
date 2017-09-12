@@ -1,25 +1,19 @@
-import React, { Component } from 'react';
-import {
-  StyleSheet,
-  View,
-} from 'react-native';
+import { StackNavigator } from 'react-navigation';
 
-import ArtistNavigator from './navigator';
+import Home from './pages/home';
+import Editor from './pages/editor';
 
-class App extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <ArtistNavigator />
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+const ArtistApp = StackNavigator({
+  Home: {
+    screen: Home,
   },
+  Editor: {
+    screen: Editor
+  },
+}, {
+  navigationOptions: {
+    header: null,
+  }
 });
 
-export default App;
+export default ArtistApp;

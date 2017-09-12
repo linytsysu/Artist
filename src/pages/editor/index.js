@@ -25,8 +25,7 @@ const PROCESS_ERROR = 3;
 
 class Editor extends Component {
   static propTypes = {
-    imageUri: PropTypes.string.isRequired,
-    navigator: PropTypes.object.isRequired,
+    navigation: PropTypes.object.isRequired,
   }
 
   constructor(props) {
@@ -46,7 +45,7 @@ class Editor extends Component {
   }
 
   _backToHome() {
-    this.props.navigator.pop();
+    this.props.navigation.goBack();
   }
 
   requestArtist(styleName) {
@@ -56,7 +55,7 @@ class Editor extends Component {
       });
       return;
     }
-    const resourceUri = this.props.imageUri;
+    const resourceUri = this.props.navigation.state.params.imageUri;
     const styleIndex = parseInt(styleName.slice(5));
     this.setState({
       status: PROCESSING,
@@ -128,7 +127,7 @@ class Editor extends Component {
       stylized,
     } = this.state;
     if (!currentStyle || !stylized[currentStyle]) {
-      return this.props.imageUri;
+      return this.props.navigation.state.params.imageUri;
     } else {
       return `file://${stylized[currentStyle]}`;
     }
