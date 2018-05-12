@@ -33,6 +33,13 @@ import com.android.build.OutputFile
  *   // bundleInPaidRelease: true,
  *   // bundleInBeta: true,
  *
+ *   // whether to disable dev mode in custom build variants (by default only disabled in release)
+ *   // for example: to disable dev mode in the staging build type (if configured)
+ *   devDisabledInStaging: true,
+ *   // The configuration property can be in the following formats
+ *   //         'devDisabledIn${productFlavor}${buildType}'
+ *   //         'devDisabledIn${buildType}'
+ *
  *   // the root of your project, i.e. where "package.json" lives
  *   root: "../../",
  *
@@ -64,6 +71,10 @@ import com.android.build.OutputFile
  *   extraPackagerArgs: []
  * ]
  */
+
+project.ext.react = [
+    entryFile: "index.js"
+]
 
 apply from: "../../node_modules/react-native/react.gradle"
 
@@ -137,11 +148,11 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-vector-icons')
     compile project(':react-native-share')
+    compile project(':react-native-image-picker')
     compile project(':react-native-fs')
     compile project(':react-native-fetch-blob')
-    compile project(':react-native-vector-icons')
-    compile project(':react-native-image-picker')
     compile fileTree(dir: "libs", include: ["*.jar"])
     compile 'org.tensorflow:tensorflow-android:1.2.0-rc0'
     compile "com.android.support:appcompat-v7:23.0.1"
