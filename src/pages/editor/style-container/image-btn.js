@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {
   TouchableOpacity,
-  Image,
+  ImageBackground,
   View,
   Text,
   StyleSheet,
@@ -40,7 +40,7 @@ class StyleImageBtn extends Component {
         activeOpacity={0.8}
         style={styles.btn}
         onPress={pressHandler}>
-        <Image
+        <ImageBackground
           source={getImage(name)}
           style={styles.image}>
           {
@@ -68,7 +68,7 @@ class StyleImageBtn extends Component {
           <View style={styles.intro}>
             <Text style={styles.name}>{name}</Text>
           </View>
-        </Image>
+        </ImageBackground>
       </TouchableOpacity>
     );
   }

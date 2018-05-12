@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {
   View,
-  Image,
+  ImageBackground,
   StyleSheet,
   StatusBar,
   Dimensions,
@@ -147,8 +147,9 @@ class Editor extends Component {
           backgroundColor={'rgba(0, 0, 0, 0.4)'}
         />
         <StatusModal visible={status === PROCESSING} />
-        <Image
+        <ImageBackground
           source={{uri: this._getImageSourceUri()}}
+          resizeMode='contain'
           style={styles.image}>
           <View style={styles.inner}>
             <View style={styles.navigatorBar}>
@@ -172,7 +173,7 @@ class Editor extends Component {
               />
             </View>
           </View>
-        </Image>
+        </ImageBackground>
       </View>
     );
   }
@@ -186,7 +187,6 @@ const styles = StyleSheet.create({
   image: {
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height,
-    resizeMode: 'contain',
   },
   inner: {
     marginTop: 20,
