@@ -1,7 +1,7 @@
 # <p align="center"> Artist </p>
 
 <p align="center">
-  <img alt="icon" src="http://cdn.linyt.xyz.qiniudns.com/artist-icon.png" width="120" height="120"> 
+  <img alt="icon" src="http://cdn.linyt.xyz/artist-icon.png" width="120" height="120"> 
 </p>
 
 <p align="center">An image style transfer App built with TensorFlow and React Native.</p>
@@ -11,10 +11,10 @@
 Artist is an App built with TensorFlow and React Native, which can transfer the style of your pictures.
 
 <p>
-  <img alt="screenshot_1" src="http://cdn.linyt.xyz.qiniudns.com/screenshot_1.png" style="margin-left: 10px">
-  <img alt="screenshot_2" src="http://cdn.linyt.xyz.qiniudns.com/screenshot_2.png" style="margin-left: 10px">
-  <img alt="screenshot_3" src="http://cdn.linyt.xyz.qiniudns.com/screenshot_3.png" style="margin-left: 10px">
-  <img alt="screenshot_4" src="http://cdn.linyt.xyz.qiniudns.com/screenshot_4.png" style="margin-left: 10px">
+  <img alt="screenshot_1" src="http://cdn.linyt.xyz/screenshot_1.png" style="margin-left: 10px">
+  <img alt="screenshot_2" src="http://cdn.linyt.xyz/screenshot_2.png" style="margin-left: 10px">
+  <img alt="screenshot_3" src="http://cdn.linyt.xyz/screenshot_3.png" style="margin-left: 10px">
+  <img alt="screenshot_4" src="http://cdn.linyt.xyz/screenshot_4.png" style="margin-left: 10px">
 </p>
 
 ## Dependencies and References
